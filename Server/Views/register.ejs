@@ -1,0 +1,17 @@
+<%- include ('./Templates/header.ejs') %>
+<main>
+    <h2>Formulaire d'inscription</h2>
+    <% if(typeof message !== 'undefined') { %>
+    <section class="message">
+            <p><%= message %></p>
+    </section>
+    <% } %>
+    <form action="/register" method="post">
+        <label for="lastname">Nom </label><input type="text" name="lastname" id="lastname">
+        <label for="firstname">Prénom </label><input type="text" name="firstname" id="firstname">
+        <label for="email">Email </label><input type="email" name="email" id="email" required>
+        <label for="password">Mot de passe </label><input type="password" name="password" id="password" required>
+        <button type="submit">Valider</button>
+    </form>
+</main>
+<%- include ('./Templates/footer.ejs') %>

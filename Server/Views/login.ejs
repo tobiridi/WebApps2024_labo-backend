@@ -1,0 +1,10 @@
+<%- include ('./Templates/header.ejs') %>
+<main>
+    <form action="/login" method="post">
+        <h2>Formulaire de connexion</h2>
+        <label for="email">Email </label><input type="email" name="email" id="email" required>
+        <label for="password">Mot de passe </label><input type="password" name="password" id="password" required>
+        <button type="submit">Valider</button>
+    </form>
+</main>
+<%- include ('./Templates/footer.ejs') %>

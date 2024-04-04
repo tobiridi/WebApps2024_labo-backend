@@ -1,0 +1,25 @@
+<%- include ('./Templates/header.ejs') %>
+<main>
+    <% if(typeof message !== 'undefined') { %>
+        <section class="message">
+                <p><%= message %></p>
+        </section>
+    <% } else { %>
+        <h1>Bienvenue sur votre profile</h1>
+        <section>
+            <label>Nom : <%= user.lastname %></label>
+            <label>Prénom : <%= user.firstname %></label>
+            <label>Email : <%= user.email %></label>
+            <label>Profile créer le : <%= new Date(user.createAt).toLocaleDateString() %></label>
+            <label>Dernière modification : <%= new Date(user.last_update).toLocaleDateString() %></label>
+        </section>
+
+        <h3>Mofidier le profile</h3>
+        <form action="/profile" method="post">
+            <input type="text" name="firstname" id="firstname" placeholder="prenom">
+            <input type="text" name="lastname" id="lastname" placeholder="nom">
+            <button type="submit">Modifier profile</button>
+        </form>
+    <% } %>
+</main>
+<%- include ('./Templates/footer.ejs') %>

@@ -1,0 +1,14 @@
+<%- include ('./Templates/header.ejs') %>
+<main>
+    <h2>Formulaire d'inscription</h2>
+    <section class="message hidden"></section>
+    <form action="#" method="post">
+        <label for="lastname">Nom </label><input type="text" name="lastname" id="lastname" placeholder="Nom">
+        <label for="firstname">Prénom </label><input type="text" name="firstname" id="firstname" placeholder="Prénom">
+        <label for="email">Email </label><input type="email" name="email" id="email" placeholder="Email" required>
+        <label for="password">Mot de passe </label><input type="password" name="password" id="password" placeholder="Mot de passe" required>
+        <button type="submit">Valider</button>
+    </form>
+</main>
+<script src="../js/callAPI.js"></script>
+<%- include ('./Templates/footer.ejs') %>

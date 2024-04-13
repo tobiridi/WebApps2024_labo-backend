@@ -34,7 +34,7 @@ const apiUserController = {
                     //create jwt token
                     const token = authMiddleware.createToken(user.id, email);
                     
-                    return res.status(200).json({data: {user}, token: token});
+                    return res.status(200).json({data: {userId:user.id, token: token}});
                 }
                 else {
                     return res.status(403).json({ message: `email or password are wrong` });
@@ -119,7 +119,7 @@ const apiUserController = {
             const userData = await userService.getUser(id);
 
             if(userData) {
-                return res.status(200).json(userData);
+                return res.status(200).json({data: userData});
             }
             else {
                 return res.status(404).json({ message: `user ${id} not found` });

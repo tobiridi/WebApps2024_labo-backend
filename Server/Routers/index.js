@@ -6,20 +6,13 @@ const cookieMiddleware = require('../Middlewares/cookie.middleware');
 
 router.get('/', homeController.homePage);
 
-router.route('/register')
-    .get(userController.register)
+router.get('/register', userController.register);
 
+router.get('/login', userController.login);
 
-    
+router.get('/profile', cookieMiddleware.verifyCookie, userController.profile);
 
-router.route('/login')
-    .get(userController.login)
-    .post(userController.login)
-
-router.route('/profile')
-    .get(cookieMiddleware.verifyCookie, userController.profile)
-    .post(cookieMiddleware.verifyCookie, userController.profile)
-
+//TODO: not done
 router.route('/profile/delete')
     .get(cookieMiddleware.verifyCookie, userController.deleteProfile)
     

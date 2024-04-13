@@ -1,26 +1,23 @@
 <%- include ('./Templates/header.ejs') %>
 <main>
-    <% if(typeof message !== 'undefined') { %>
-        <section class="message">
-                <p><%= message %></p>
-        </section>
-    <% } else { %>
-        <h1>Bienvenue sur votre profile</h1>
-        <section>
-            <label>Nom : <%= user.lastname %></label>
-            <label>Prénom : <%= user.firstname %></label>
-            <label>Email : <%= user.email %></label>
-            <label>Profile créer le : <%= new Date(user.createAt).toLocaleDateString() %></label>
-            <label>Dernière modification : <%= new Date(user.last_update).toLocaleDateString() %></label>
-        </section>
+    <h1>Bienvenue sur votre profile</h1>
+    <section class="message hidden"></section>
+    <section id="userDetails">
+        <!-- <label>Nom :</label>
+        <label>Prénom :</label>
+        <label>Email :</label>
+        <label>Profile créer le : new Date(user.createAt).toLocaleDateString()</label>
+        <label>Dernière modification : new Date(user.last_update).toLocaleDateString()</label> -->
+        <hr>
+    </section>
 
-        <h3>Modifier le profile</h3>
-        <form action="/profile" method="post">
-            <input type="text" name="firstname" id="firstname" placeholder="Prénom">
-            <input type="text" name="lastname" id="lastname" placeholder="Nom">
-            <button type="submit">Modifier profile</button>
-        </form>
-        <button type="button"><a href="/profile/delete">Supprimer Profile</a></button>
-    <% } %>
+    <h3>Modifier le profile</h3>
+    <form action="#" method="post">
+        <input type="text" name="firstname" id="firstname" placeholder="Prénom">
+        <input type="text" name="lastname" id="lastname" placeholder="Nom">
+        <button type="submit">Modifier profile</button>
+    </form>
+    <button type="button"><a href="/profile/delete">Supprimer Profile</a></button>
 </main>
+<script src="../js/callAPI.js"></script>
 <%- include ('./Templates/footer.ejs') %>

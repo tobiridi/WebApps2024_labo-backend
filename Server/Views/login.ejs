@@ -1,35 +1,12 @@
 <%- include ('./Templates/header.ejs') %>
 <main>
     <h2>Formulaire de connexion</h2>
-    <% if(typeof message !== 'undefined') { %>
-        <section class="message">
-            <p><%= message %></p>
-        </section>
-    <% } %>
-    <form action="/login" method="post">
+    <section class="message hidden"></section>
+    <form action="#" method="post">
         <label for="email">Email </label><input type="email" name="email" id="email" placeholder="Email" required>
         <label for="password">Mot de passe </label><input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <button type="submit" id="btnSubmit">Valider</button>
+        <button type="submit">Valider</button>
     </form>
 </main>
-<script>
-    //call api
-    const btn = document.getElementById('btnSubmit');
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    //get data form
-    const data = {
-        email: email,
-        password: password
-    };
-
-    console.log(data);
-    
-    btn.addEventListener('click', async (ev) => {
-        ev.preventDefault();
-        const apiResponse = await callAPI('/user/login', 'POST', data, null);
-        console.log(apiResponse);
-    });
-
-</script>
+<script src="../js/callAPI.js"></script>
 <%- include ('./Templates/footer.ejs') %>
